@@ -1,0 +1,32 @@
+{
+    "app": {
+        "title": "Welcome to my Portfolio Webpage"
+    },
+    "landing": {
+        "title": "Welcome to my Portfolio"
+    },
+    "loader" : {
+        "text": "loading..."
+    },
+    "login": {
+        "err_usr_pass": "Username and password must not be null",
+        "err_inv_lgn": "Invalid login",
+        "email_placeholder": "email",
+        "password_placeholder": "password",
+        "button_login": "Log in",
+        "login_title": "Admin Panel"
+    },
+    "nav": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "admin": "Admin"
+    },
+    "aboutMeCard": {
+        "name": "Nombre",
+        "birthdate": "Birthdate",
+        "nationality": "Nationality",
+        "occupation": "Occupation",
+        "company": "Company",
+        "github": "Link"
+    }
+}
