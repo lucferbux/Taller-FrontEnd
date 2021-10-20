@@ -30,7 +30,7 @@ const Dashboard = () => {
         setResponse({ aboutme, projects });
       } catch {
         console.log("Error");
-        setError("User not found");
+        setError("Info not found");
       } finally {
         stopSearch();
       }

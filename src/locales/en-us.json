@@ -14,7 +14,7 @@
         "email_placeholder": "email",
         "password_placeholder": "password",
         "button_login": "Log in",
-        "login_title": "Admin Panel"
+        "login_title": "Login Panel"
     },
     "nav": {
         "home": "Home",
@@ -22,7 +22,7 @@
         "admin": "Admin"
     },
     "aboutMeCard": {
-        "name": "Nombre",
+        "name": "Name",
         "birthdate": "Birthdate",
         "nationality": "Nationality",
         "occupation": "Occupation",

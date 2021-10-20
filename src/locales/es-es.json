@@ -14,7 +14,7 @@
         "email_placeholder": "correo",
         "password_placeholder": "contraseña",
         "button_login": "Entrar",
-        "login_title": "Panel Administrador"
+        "login_title": "Panel de Acceso"
     },
     "nav": {
         "home": "Inicio",

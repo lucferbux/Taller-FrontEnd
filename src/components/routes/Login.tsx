@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import useApp from "../../hooks/useApp";
 import useAuth from "../../hooks/useAuth";
 import { themes } from "../styles/ColorStyles";
 import { Caption, H1 } from "../styles/TextStyles";
@@ -12,6 +13,7 @@ const Login = () => {
   let location = useLocation();
   const { t } = useTranslation();
   const { login } = useAuth();
+  const { addNotification, removeLastNotification } = useApp();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,10 +31,13 @@ const Login = () => {
     }
 
     try {
+      addNotification(t("loader.text"));
       await login(username, password);
       history.replace(from);
     } catch (e) {
       setErrorMsg(t("login.err_inv_lgn"));
+    } finally {
+      removeLastNotification();
     }
   }
 

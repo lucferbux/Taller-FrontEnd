@@ -15,7 +15,7 @@ export const mockLogin = (userName: string, password: string) => new Promise<Tok
         } else {
             rejected(new Unauthorized());
         }
-    }, 500);
+    }, 2000);
     
 })
 export interface TokenResponse {
