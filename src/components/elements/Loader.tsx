@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import icnLoader from "./loader.svg";
 import useApp from "../../hooks/useApp";
-import { themes } from "../styles/ColorStyles";
-import { Caption } from "../styles/TextStyles";
+import { themes } from "../../styles/ColorStyles";
+import { Caption } from "../../styles/TextStyles";
 
 export default function Loader() {
   const { notifications } = useApp();

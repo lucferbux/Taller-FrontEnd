@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { themes } from "../styles/ColorStyles";
-import { MediumText } from "../styles/TextStyles";
+import { themes } from "../../styles/ColorStyles";
+import { MediumText } from "../../styles/TextStyles";
 
 interface AboutMeCardRowProps {
   title: string;

@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { Project } from "../../model/project"
-import { themes } from "../styles/ColorStyles"
+import { themes } from "../../styles/ColorStyles"
 import {
   H3,
   DescriptionCard,
   SmallText,
   SmallText2,
-} from "../styles/TextStyles"
+} from "../../styles/TextStyles"
 import codeIcon from "./code.svg"
 
 interface ProjectCardProps {

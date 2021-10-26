@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { themes } from "../styles/ColorStyles";
+import { themes } from "../../styles/ColorStyles";
 
 export const home = {
   title: "nav.home",

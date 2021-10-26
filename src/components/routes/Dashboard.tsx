@@ -7,8 +7,8 @@ import { Project } from "../../model/project";
 import { mockAboutme, mockProjects } from "../../utils/mock-response";
 import AboutMeCard from "../cards/AboutMeCard";
 import ProjectCard from "../cards/ProjectCard";
-import { themes } from "../styles/ColorStyles";
-import { MediumText } from "../styles/TextStyles";
+import { themes } from "../../styles/ColorStyles";
+import { MediumText } from "../../styles/TextStyles";
 
 interface Response {
   aboutme?: AboutMe;

@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { AboutMe } from "../../model/aboutme";
-import { themes } from "../styles/ColorStyles";
+import { themes } from "../../styles/ColorStyles";
 import AboutMeCardRow from "./AboutMeCardRow";
 
 import avatarCard from "./Avatar.jpg";

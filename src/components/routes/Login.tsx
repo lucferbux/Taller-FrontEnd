@@ -4,8 +4,8 @@ import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import useApp from "../../hooks/useApp";
 import useAuth from "../../hooks/useAuth";
-import { themes } from "../styles/ColorStyles";
-import { Caption, H1 } from "../styles/TextStyles";
+import { themes } from "../../styles/ColorStyles";
+import { Caption, H1 } from "../../styles/TextStyles";
 
 
 const Login = () => {

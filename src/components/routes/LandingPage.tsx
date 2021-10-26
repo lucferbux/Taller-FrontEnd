@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import WaveLanding from "../../background/WaveLanding";
-import { themes } from "../styles/ColorStyles";
-import { H1 } from "../styles/TextStyles";
+import WaveLanding from "../background/WaveLanding";
+import { themes } from "../../styles/ColorStyles";
+import { H1 } from "../../styles/TextStyles";
 import Lottie from 'react-lottie';
 import animationData from "./landing.json"
 
