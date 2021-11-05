@@ -56,7 +56,8 @@ const Wrapper = styled.div`
   z-index: 3;
   background-color: ${themes.light.primary};
 
-  @media (prefers-color-scheme: dark) {
+  @media(prefers-color-scheme: dark) {
+      background-color: ${themes.dark.primary};
   }
 `;
 interface MenuWrapperProps {

@@ -101,6 +101,12 @@ const ContentWrapper = styled.div`
     justify-content: center;
     padding: 30px 0px 180px 0px;
   }
+
+  @media (max-width: 500px) {
+    justify-content: stretch;
+    justify-items: stretch;
+    padding: 30px 0px 180px 0px;
+  }
 `;
 
 const TitleForm = styled(H1)`
@@ -127,6 +133,7 @@ const LoginPannel = styled.form`
   @media (max-width: 500px) {
     width: auto;
     margin: 0px 20px;
+    padding: 20px;
   }
 
 
@@ -163,7 +170,7 @@ const ButtonForm = styled.input`
   color: ${themes.dark.text1};
 
   @media (prefers-color-scheme: dark) {
-    background-color: ${themes.light.primary};
+    background-color: ${themes.dark.primary};
   }
 `;
 

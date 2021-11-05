@@ -1,17 +1,13 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from "react";
 
 
 const Admin = () => {
-
-    // TODO: create admin page
-    const { t } = useTranslation();
-
-    return (
-        <div>
-            <h1>{t('admin')}</h1>
-        </div>
-    );
+ 
+  return (
+    <p>Admin</p>
+  );
 };
+
+
 
 export default Admin;

@@ -1,13 +1,18 @@
 import jwt_decode from "jwt-decode";
 import { tokenKey } from "../constants/config";
-
-
-import { User } from "../context/AuthContext";
+import { User } from "../model/user";
 
 interface Token {
   accessToken: string;
   notBeforeTimestampInMillis: number;
   expirationTimestampInMillis: number;
+}
+
+interface JWTPayload {
+  id: string;
+  email: string;
+  iat: number;
+  exp: number;
 }
 
 class WrongCredentialsException extends Error {}
@@ -31,12 +36,12 @@ export function setLogoutIfExpiredHandler(
   );
 }
 
-export function setAuthToken(accessToken: string, expiresIn: number) {
-  const currentTimestamp = Date.now();
+export function setAuthToken(accessToken: string) {
+  const tokenPayload = getPayload(accessToken);
   const token: Token = {
     accessToken: accessToken,
-    notBeforeTimestampInMillis: currentTimestamp,
-    expirationTimestampInMillis: expiresIn * 1000 + currentTimestamp,
+    notBeforeTimestampInMillis: tokenPayload.iat * 1000,
+    expirationTimestampInMillis: tokenPayload.exp * 1000,
   };
   localStorage.setItem(tokenKey, JSON.stringify(token));
 }
@@ -48,6 +53,10 @@ function logout() {
 
 export function removeAuthToken() {
   localStorage.removeItem(tokenKey);
+}
+
+function getPayload(token: string): JWTPayload {
+  return jwt_decode(token);
 }
 
 function getToken(): Token | null {
@@ -71,16 +80,16 @@ function getAccessToken(): string {
 export function getCurrentUser(): User | undefined {
   const token = getToken();
   if (token) {
-    const { userId, userName, displayName } = jwt_decode<{
-      sub: any;
-    }>(token.accessToken).sub;
-    const user = {
-      id: userId,
+    if (!isTokenActive()) {
+      logout();
+      return undefined;
+    }
+    const tokenPayload = getPayload(token.accessToken);
+    return {
+      id: tokenPayload.id,
       active: true,
-      userName,
-      displayName,
+      email: tokenPayload.email
     };
-    return user;
   } else {
     return undefined;
   }
@@ -88,12 +97,9 @@ export function getCurrentUser(): User | undefined {
 
 function isTokenActive(): boolean {
   const token = getToken();
-  const currentTimestamp = Date.now();
-
+  // TODO: check token expiration
   return !!(
-    token &&
-    token.expirationTimestampInMillis - currentTimestamp > 0 &&
-    token.notBeforeTimestampInMillis <= currentTimestamp
+    token 
   );
 }
 

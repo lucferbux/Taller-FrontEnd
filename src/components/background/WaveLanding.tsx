@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import background from "./background-landing.svg"
+import backgroundDark from "./background-landing-dark.svg"
 
 const WaveLanding = () => {
   return (
@@ -27,6 +28,7 @@ const Wave = styled.img`
   @media (min-width: 1440px) {
     width: 100%;
   }
+  @media (prefers-color-scheme: dark) {
+    content: url(${backgroundDark});
+  }
 `
-
-

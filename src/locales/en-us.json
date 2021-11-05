@@ -8,6 +8,9 @@
     "loader" : {
         "text": "loading..."
     },
+    "dashboard" : {
+        "error": "Error loading data"
+    },
     "login": {
         "err_usr_pass": "Username and password must not be null",
         "err_inv_lgn": "Invalid login",
@@ -15,6 +18,17 @@
         "password_placeholder": "password",
         "button_login": "Log in",
         "login_title": "Login Panel"
+    },
+    "admin": {
+        "err_invalid_form": "Inputs must not be null",
+        "header": "Project Input",
+        "input_title": "Title",
+        "input_description": "Description",
+        "input_link": "Link",
+        "input_tags": "Tags",
+        "input_version": "Version",
+        "button_accept": "Post",
+        "button_delete": "Delete"
     },
     "nav": {
         "home": "Home",

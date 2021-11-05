@@ -65,7 +65,7 @@ const Dashboard = () => {
           </ResponseWrapper>
         )}
 
-        {error && <ErrorMsg>{t("search.error")}</ErrorMsg>}
+        {error && <ErrorMsg>{t("dashboard.error")}</ErrorMsg>}
       </ContentWrapper>
     </Wrapper>
   );
@@ -97,6 +97,7 @@ const ResponseWrapper = styled.div`
   @media (max-width: 1080px) {
     grid-template-columns: auto;
     grid-template-rows: auto auto;
+    justify-content: center;
   }
 `;
 
@@ -105,8 +106,8 @@ const AboutMeWrapper = styled.div`
   align-items: flex-start;
 
   @media (max-width: 810px) {
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: stretch;
   }
 `;
 
@@ -128,7 +129,7 @@ const ProjectWrapper = styled.div`
     gap: 20px;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 940px) {
     grid-template-columns: auto auto;
   }
 

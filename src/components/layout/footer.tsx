@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 
   @media(prefers-color-scheme: dark) {
       background-color: ${themes.dark.primary};
-    }
+  }
 
   @media (max-width: 550px) {
     top: 10px;

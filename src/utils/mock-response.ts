@@ -7,9 +7,7 @@ export const mockLogin = (userName: string, password: string) => new Promise<Tok
         if (userName === "user@threepoints.com" && password === "patata") {
             resolve(JSON.parse(
                 `{
-                 "access_token" : "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOnsidXNlcklkIjo2NjYsInJvbGUiOiJhZG1pbiIsInVzZXJOYW1lIjoiYWRtaW4iLCJkaXNwbGF5TmFtZSI6ImFkbWluIn0sImlhdCI6MTYwMTAyNzU1MywibmJmIjoxNjAxMDI3NTUzLCJleHAiOjE2MDExMTM5NTN9.vHgVtxKGmwDDLLVuT63UBkP8xe4a9hH0B3kkCsAh7K8",
-                 "expires_in": 3600,
-                 "token_type": "bearer"
+                 "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyOTM0ODIwOTM0ODkwODA5OCIsImVtYWlsIjoibHVjYXNmZXJuYW5kZXphcmFnb25AZ21haWwuY29tIiwiaWF0IjoxNjM2OTIzOTE4LCJleHAiOjE2MzY5Mjc1MTh9.3qHpT-ZKj04-QzkissGbuyCHFkgN_WXy8LkuXcrUUSw"
                  }`
             ));
         } else {
@@ -19,9 +17,7 @@ export const mockLogin = (userName: string, password: string) => new Promise<Tok
     
 })
 export interface TokenResponse {
-    access_token: string;
-    expires_in: number;
-    token_type: string;
+    token: string;
 }
 export interface ApiError {
     description?: string;
