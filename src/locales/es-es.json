@@ -1,4 +1,8 @@
 {
+    "meta": {
+        "title": "Portfolio",
+        "description": "Personal Portfolio Webpage"
+    },
     "app": {
         "title": "Bienvenid@s a mi Web Portfolio"
     },
