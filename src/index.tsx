@@ -6,16 +6,19 @@ import { AuthProvider } from './context/AuthContext';
 import { AppProvider } from './context/AppContext/AppContext';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <AppProvider>
-        <App />
-      </AppProvider>
-    </AuthProvider>  
+    <HelmetProvider>
+      <AuthProvider>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </AuthProvider>  
+    </HelmetProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
