@@ -14,23 +14,12 @@ Además, como se enseñará en el propio proyecto, podemos ver el prototipo fina
 
 Para poner en marcha el proyecto tenemos que seguir los siguientes pasos:
 
-1. Añadir los paquetes con ```npm install````
+1. Añadir los paquetes con ```npm install```
 
-2. Crear una sesión de desarrollo con ```npm run start````
+2. Crear una sesión de desarrollo con ```npm run start```
 
 3. Si queremos la webapp compilada, solo tendremos que ejecutar ```npm run build```
 
+## Proyecto
 
-## Tecnologías
-
-Este proyecto cuenta con las siguientes tecnologías, se pueden consultar dentro del prototipo final.
-
-* React - https://reactjs.org/docs/hello-world.html
-* Create React App - https://create-react-app.dev 
-* Styled Components - https://styled-components.com
-* Internationalization - https://react.i18next.com
-* Lottie - https://lottiefiles.com/blog/working-with-lottie/how-to-use-lottie-in-react-app
-* React Router - https://reactrouter.com/web/guides/quick-start
-* Typescript - https://www.typescriptlang.org
-* Swagger - https://swagger.io
-* Figma - https://www.figma.com
+Los detalles del proyecto se pueden consultar en su [documentación oficial](https://taller-threepoints-docs.netlify.app).
