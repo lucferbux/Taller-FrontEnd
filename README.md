@@ -4,6 +4,10 @@ Primera sesión del Taller Proyecto Web. En esta primera sesión nos centraremos
 
 ![Frontend](./doc/frontend.svg)
 
+## Documentación
+
+Puedes encontrar la documentación de este proyecto en [este enlace](https://taller-threepoints-docs.netlify.app/docs/frontend/intro).
+
 ## Prototipo
 
 Una versión interactiva del proyecto se puede encontrar en la [Página de Figma](https://www.figma.com/proto/3e43h8TrzwpjfKwXvFxZoP/Taller?page-id=144%3A51&node-id=147%3A3&viewport=254%2C48%2C0.21&scaling=min-zoom&starting-point-node-id=147%3A3).
