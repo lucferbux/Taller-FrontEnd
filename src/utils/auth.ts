@@ -30,9 +30,10 @@ export function setLogoutIfExpiredHandler(
     return;
   }
 
+  // TODO: change dynamically in next session
   logoutIfExpiredHandlerId = setTimeout(
     () => setUser(undefined),
-    token.expirationTimestampInMillis - Date.now()
+    1800000
   );
 }
 
