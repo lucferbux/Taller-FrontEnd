@@ -39,7 +39,6 @@ const LoaderCard = styled.div`
   font-size: 24px;
   text-align: center;
   color: ${themes.dark.text1};
-
 `;
 
 const LoaderImg = styled.img`

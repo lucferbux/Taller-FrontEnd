@@ -49,7 +49,6 @@ const InfoKey = styled(MediumText)`
   @media (prefers-color-scheme: dark) {
     color: ${themes.dark.text1};
   }
-  
 `;
 
 const InfoValue = styled(MediumText)`
