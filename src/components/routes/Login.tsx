@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import useApp from "../../hooks/useApp";
 import useAuth from "../../hooks/useAuth";
@@ -9,7 +9,7 @@ import { Caption, H1 } from "../../styles/TextStyles";
 
 
 const Login = () => {
-  let history = useHistory();
+  let navigate = useNavigate();
   let location = useLocation();
   const { t } = useTranslation();
   const { login } = useAuth();
@@ -33,7 +33,7 @@ const Login = () => {
     try {
       addNotification(t("loader.text"));
       await login(username, password);
-      history.replace(from);
+      navigate(from);
     } catch (e) {
       setErrorMsg(t("login.err_inv_lgn"));
     } finally {

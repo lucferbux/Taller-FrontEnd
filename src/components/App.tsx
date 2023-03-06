@@ -1,40 +1,42 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "./layout/layout";
 import {
   BrowserRouter as Router,
-  Switch,
+  Navigate,
   Route,
-  Redirect
+  Routes,
 } from "react-router-dom";
 import LandingPage from "./routes/LandingPage";
 import Login from "./routes/Login";
-import PrivateRoute from "./routes/PrivateRoute";
 import Loader from "./elements/Loader";
 import Dashboard from "./routes/Dashboard";
 import Admin from "./routes/Admin";
+import useAuth from "../hooks/useAuth";
 
 const App = () => {
-  
+  let { user, loadUser } = useAuth();
+
+  useEffect(() => {
+    loadUser();
+  }, [loadUser]);
+
   // TODO: Change redirect to Dashboard
   return (
     <Router>
       <Layout>
-        <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <PrivateRoute path="/admin">
-            <Admin />
-          </PrivateRoute>
-          <Redirect from="*" to="/" />
-        </Switch>
-        <Loader/>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          {user ? (
+            <Route path="admin" element={<Admin />} />
+          ) : (
+            <Navigate to="/login" replace={true} />
+          )}
+          ;
+          <Route path="*" element={<Navigate to="." replace />} />
+        </Routes>
+        <Loader />
       </Layout>
     </Router>
   );
