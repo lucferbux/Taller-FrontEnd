@@ -77,7 +77,6 @@ const Wrapper = styled.div`
     grid-template-columns: 40% auto;
     grid-template-rows: auto;
     column-gap: 60px;
-    
   }
 
   @media (max-width: 810px) {
@@ -110,7 +109,6 @@ const ImageWrapper = styled.img`
   @media (max-width: 1024px) {
     max-height: 400px;
   }
-
 `;
 
 const InfoWrapper = styled.div`

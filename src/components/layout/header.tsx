@@ -56,8 +56,8 @@ const Wrapper = styled.div`
   z-index: 3;
   background-color: ${themes.light.primary};
 
-  @media(prefers-color-scheme: dark) {
-      background-color: ${themes.dark.primary};
+  @media (prefers-color-scheme: dark) {
+    background-color: ${themes.dark.primary};
   }
 `;
 interface MenuWrapperProps {
@@ -73,7 +73,6 @@ const MenuWrapper = styled.div<MenuWrapperProps>`
 const LinkButton = styled.p`
   color: ${themes.dark.text1};
 `;
-
 
 // const Logo = styled.img`
 //   height: 30px;

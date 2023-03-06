@@ -1,26 +1,21 @@
-import React from "react"
-import styled from "styled-components"
-import background from "./background-landing.svg"
-import backgroundDark from "./background-landing-dark.svg"
+import React from "react";
+import styled from "styled-components";
+import background from "./background-landing.svg";
+import backgroundDark from "./background-landing-dark.svg";
 
 const WaveLanding = () => {
   return (
     <Wrapper>
-
-      <Wave
-        src={background}
-        alt="Background Image"
-      />
-
+      <Wave src={background} alt="Background Image" />
     </Wrapper>
-  )
-}
+  );
+};
 
-export default WaveLanding
+export default WaveLanding;
 
 const Wrapper = styled.div`
   position: relative;
-`
+`;
 const Wave = styled.img`
   position: absolute;
   top: -100px;
@@ -31,4 +26,4 @@ const Wave = styled.img`
   @media (prefers-color-scheme: dark) {
     content: url(${backgroundDark});
   }
-`
+`;

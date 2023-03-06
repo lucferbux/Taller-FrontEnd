@@ -9,23 +9,20 @@ interface AboutMeCardRowProps {
 }
 
 const AboutMeCardRow = (props: AboutMeCardRowProps) => {
-
-    const formatDate = (value: string | number): string => {
-      if(typeof value === "number") {
-        let date = new Date(value);
-        return date.toLocaleDateString();
-      } else {
-        return value;
-      }
-  }
+  const formatDate = (value: string | number): string => {
+    if (typeof value === "number") {
+      const date = new Date(value);
+      return date.toLocaleDateString();
+    } else {
+      return value;
+    }
+  };
 
   return (
     <InfoDetailBox>
       <InfoKey>{props.title}</InfoKey>
       <InfoValueWrapper>
-          <InfoValue>{
-          formatDate(props.value)
-          }</InfoValue>
+        <InfoValue>{formatDate(props.value)}</InfoValue>
       </InfoValueWrapper>
     </InfoDetailBox>
   );
@@ -38,9 +35,7 @@ const InfoDetailBox = styled.div`
   column-gap: 6px;
 `;
 
-const InfoValueWrapper = styled.div`
-    
-`;
+const InfoValueWrapper = styled.div``;
 
 const InfoKey = styled(MediumText)`
   font-weight: bold;
@@ -60,5 +55,4 @@ const InfoValue = styled(MediumText)`
   }
 `;
 
-export default AboutMeCardRow
-;
+export default AboutMeCardRow;

@@ -7,9 +7,8 @@ import useAuth from "../../hooks/useAuth";
 import { themes } from "../../styles/ColorStyles";
 import { Caption, H1 } from "../../styles/TextStyles";
 
-
 const Login = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const { login } = useAuth();
   const { addNotification, removeLastNotification } = useApp();
@@ -65,10 +64,29 @@ const Login = () => {
       <ContentWrapper>
         <TitleForm>{t("login.login_title")}</TitleForm>
         <LoginPannel onSubmit={doLogin}>
-          { errorMsg && <ErrorDescription>{errorMsg}</ErrorDescription>}
-          <LoginForm name="email" type="email" placeholder={t("login.email_placeholder")} value={username} onChange={onChangeUsername}/>
-          <LoginForm name="password" type="password" placeholder={t("login.password_placeholder")} value={password} onChange={onChangePassword}/>
-          <ButtonForm type="submit" value={t("login.button_login") != null ? t("login.button_login") as string : "Log In"}  />
+          {errorMsg && <ErrorDescription>{errorMsg}</ErrorDescription>}
+          <LoginForm
+            name="email"
+            type="email"
+            placeholder={t("login.email_placeholder")}
+            value={username}
+            onChange={onChangeUsername}
+          />
+          <LoginForm
+            name="password"
+            type="password"
+            placeholder={t("login.password_placeholder")}
+            value={password}
+            onChange={onChangePassword}
+          />
+          <ButtonForm
+            type="submit"
+            value={
+              t("login.button_login") != null
+                ? (t("login.button_login") as string)
+                : "Log In"
+            }
+          />
         </LoginPannel>
       </ContentWrapper>
     </Wrapper>
@@ -110,7 +128,7 @@ const TitleForm = styled(H1)`
   @media (prefers-color-scheme: dark) {
     color: ${themes.dark.text1};
   }
-`
+`;
 
 const LoginPannel = styled.form`
   padding: 20px 40px;
@@ -131,15 +149,10 @@ const LoginPannel = styled.form`
     margin: 0px 20px;
     padding: 20px;
   }
-
-
 `;
 
 const ErrorDescription = styled(Caption)`
-
   color: ${themes.light.warning};
-
-
 `;
 
 const LoginForm = styled.input`
@@ -155,7 +168,6 @@ const LoginForm = styled.input`
     color: ${themes.dark.text1};
     background-color: ${themes.dark.backgroundForm};
   }
-
 `;
 
 const ButtonForm = styled.input`
@@ -169,6 +181,5 @@ const ButtonForm = styled.input`
     background-color: ${themes.dark.primary};
   }
 `;
-
 
 export default Login;
