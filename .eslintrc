@@ -38,7 +38,8 @@
         "devDependencies": [
           "**/*.stories.*",
           "**/.storybook/**/*.*",
-          "**/.jest-canvas-mock/**/*.*"
+          "**/.jest-canvas-mock/**/*.*",
+          "**/*.d.ts"
         ],
         "peerDependencies": true
       }
