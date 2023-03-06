@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useApp from "../../hooks/useApp";
 import useAuth from "../../hooks/useAuth";
@@ -10,7 +10,6 @@ import { Caption, H1 } from "../../styles/TextStyles";
 
 const Login = () => {
   let navigate = useNavigate();
-  let location = useLocation();
   const { t } = useTranslation();
   const { login } = useAuth();
   const { addNotification, removeLastNotification } = useApp();
@@ -18,9 +17,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
-  let { from } = (location.state as any) || { from: { pathname: "/" } };
-
 
   async function doLogin(event: FormEvent<HTMLFormElement>) {
     dismissError();
@@ -33,7 +29,7 @@ const Login = () => {
     try {
       addNotification(t("loader.text"));
       await login(username, password);
-      navigate(from);
+      navigate("/admin");
     } catch (e) {
       setErrorMsg(t("login.err_inv_lgn"));
     } finally {
