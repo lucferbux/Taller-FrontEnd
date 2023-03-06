@@ -1,0 +1,10 @@
+.idea
+.storybook
+.config
+node_modules/*
+config/*
+public/*
+build/*
+scripts/*
+src/react-app-env.d.ts
+src/reportWebVitals.ts
