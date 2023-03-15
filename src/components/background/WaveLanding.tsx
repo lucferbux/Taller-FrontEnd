@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import background from "./background-landing.svg";
-import backgroundDark from "./background-landing-dark.svg";
+import React from 'react';
+import styled from 'styled-components';
+import background from './background-landing.svg';
+import backgroundDark from './background-landing-dark.svg';
 
 const WaveLanding = () => {
   return (

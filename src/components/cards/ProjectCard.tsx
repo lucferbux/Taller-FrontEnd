@@ -1,14 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Project } from "../../model/project";
-import { themes } from "../../styles/ColorStyles";
-import {
-  H3,
-  DescriptionCard,
-  SmallText,
-  SmallText2,
-} from "../../styles/TextStyles";
-import codeIcon from "./code.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { Project } from '../../model/project';
+import { themes } from '../../styles/ColorStyles';
+import { H3, DescriptionCard, SmallText, SmallText2 } from '../../styles/TextStyles';
+import codeIcon from './code.svg';
 
 interface ProjectCardProps {
   project: Project;
@@ -25,7 +20,7 @@ const ProjectCard = (props: ProjectCardProps) => {
           <CardVersionText>{project.version}</CardVersionText>
         </CardVersion>
         <CardCaption data-testid="caption">
-          {props.captionText ? props.captionText : ""}
+          {props.captionText ? props.captionText : ''}
         </CardCaption>
         <CardTitle>{project.title}</CardTitle>
         <CardDescription>{project.description}</CardDescription>
@@ -105,13 +100,11 @@ const CardWrapper = styled.div`
   border-radius: 20px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.4);
-  box-shadow: rgb(24 32 79 / 25%) 0px 40px 80px,
-    rgb(255 255 255 / 50%) 0px 0px 0px 0.5px inset;
+  box-shadow: rgb(24 32 79 / 25%) 0px 40px 80px, rgb(255 255 255 / 50%) 0px 0px 0px 0.5px inset;
   animation: fadein 0.4s;
 
   @media (prefers-color-scheme: dark) {
-    box-shadow: rgb(24 32 79 / 25%) 0px 40px 80px,
-      rgb(255 255 255 / 50%) 0px 0px 0px 0.5px inset;
+    box-shadow: rgb(24 32 79 / 25%) 0px 40px 80px, rgb(255 255 255 / 50%) 0px 0px 0px 0.5px inset;
     background: rgba(0, 0, 0, 0.4);
     color: ${themes.dark.text1};
   }

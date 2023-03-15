@@ -1,11 +1,11 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
-import { AboutMe } from "../../model/aboutme";
-import { themes } from "../../styles/ColorStyles";
-import AboutMeCardRow from "./AboutMeCardRow";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import { AboutMe } from '../../model/aboutme';
+import { themes } from '../../styles/ColorStyles';
+import AboutMeCardRow from './AboutMeCardRow';
 
-import avatarCard from "./Avatar.jpg";
+import avatarCard from './Avatar.jpg';
 
 interface AboutMeCardProps {
   aboutMe: AboutMe;
@@ -19,19 +19,13 @@ const AboutMeCard = (props: AboutMeCardProps) => {
       <ImageWrapper src={avatarCard} />
       <InfoWrapper>
         <InfoSection>
-          <AboutMeCardRow
-            title={t("aboutMeCard.name")}
-            value={props.aboutMe.name}
-          />
+          <AboutMeCardRow title={t('aboutMeCard.name')} value={props.aboutMe.name} />
           {props.aboutMe.birthday && (
-            <AboutMeCardRow
-              title={t("aboutMeCard.birthdate")}
-              value={props.aboutMe.birthday}
-            />
+            <AboutMeCardRow title={t('aboutMeCard.birthdate')} value={props.aboutMe.birthday} />
           )}
           {props.aboutMe.nationality && (
             <AboutMeCardRow
-              title={t("aboutMeCard.nationality")}
+              title={t('aboutMeCard.nationality')}
               value={props.aboutMe.nationality}
             />
           )}
@@ -39,16 +33,10 @@ const AboutMeCard = (props: AboutMeCardProps) => {
 
         <InfoSection>
           {props.aboutMe.job && (
-            <AboutMeCardRow
-              title={t("aboutMeCard.occupation")}
-              value={props.aboutMe.job}
-            />
+            <AboutMeCardRow title={t('aboutMeCard.occupation')} value={props.aboutMe.job} />
           )}
           {props.aboutMe.github && (
-            <AboutMeCardRow
-              title={t("aboutMeCard.github")}
-              value={props.aboutMe.github}
-            />
+            <AboutMeCardRow title={t('aboutMeCard.github')} value={props.aboutMe.github} />
           )}
         </InfoSection>
       </InfoWrapper>

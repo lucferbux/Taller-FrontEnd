@@ -1,4 +1,4 @@
-import { POP_NOTIFICATION, PUSH_NOTIFICATION } from "./constants";
+import { POP_NOTIFICATION, PUSH_NOTIFICATION } from './constants';
 
 type ActionType = {
   type: string;
@@ -30,7 +30,7 @@ const popNotification = (state: any) => {
 
 const notificationsReducer = {
   [PUSH_NOTIFICATION]: pushNotification,
-  [POP_NOTIFICATION]: popNotification,
+  [POP_NOTIFICATION]: popNotification
 };
 
 export default createReducer(notificationsReducer);

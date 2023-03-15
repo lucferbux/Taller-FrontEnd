@@ -1,23 +1,23 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { themes } from "../../styles/ColorStyles";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { themes } from '../../styles/ColorStyles';
 
 export const home = {
-  title: "nav.home",
-  link: "/",
+  title: 'nav.home',
+  link: '/'
 };
 
 export const menuData = [
   {
-    title: "nav.dashboard",
-    link: "/dashboard",
+    title: 'nav.dashboard',
+    link: '/dashboard'
   },
   {
-    title: "nav.admin",
-    link: "/admin",
-  },
+    title: 'nav.admin',
+    link: '/admin'
+  }
 ];
 
 const Header = () => {

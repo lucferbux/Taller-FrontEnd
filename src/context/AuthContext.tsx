@@ -1,22 +1,16 @@
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
-import { User } from "../model/user";
+import { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
+import { User } from '../model/user';
 import {
   getCurrentUser,
   isTokenActive,
   setLogoutIfExpiredHandler,
   logout as logoutService,
-  setAuthToken,
-} from "../utils/auth";
-import { mockLogin } from "../utils/mock-response";
+  setAuthToken
+} from '../utils/auth';
+import { mockLogin } from '../utils/mock-response';
 
 const AuthContext = createContext<any>({
-  user: undefined,
+  user: undefined
 });
 
 interface Props {

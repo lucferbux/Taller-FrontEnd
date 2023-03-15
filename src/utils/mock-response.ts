@@ -1,10 +1,10 @@
-import { AboutMe } from "../model/aboutme";
-import { Project } from "../model/project";
+import { AboutMe } from '../model/aboutme';
+import { Project } from '../model/project';
 
 export const mockLogin = (userName: string, password: string) =>
   new Promise<TokenResponse>(function (resolve, rejected) {
     setTimeout(() => {
-      if (userName === "user@threepoints.com" && password === "patata") {
+      if (userName === 'user@threepoints.com' && password === 'patata') {
         resolve(
           JSON.parse(
             `{

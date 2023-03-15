@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { themes } from "../../styles/ColorStyles";
+import React from 'react';
+import styled from 'styled-components';
+import { themes } from '../../styles/ColorStyles';
 
 const Footer = () => {
   return (

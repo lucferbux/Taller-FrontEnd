@@ -1,11 +1,11 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
-import WaveLanding from "../background/WaveLanding";
-import { themes } from "../../styles/ColorStyles";
-import { H1 } from "../../styles/TextStyles";
-import Lottie from "lottie-react";
-import animationData from "./landing.json";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import WaveLanding from '../background/WaveLanding';
+import { themes } from '../../styles/ColorStyles';
+import { H1 } from '../../styles/TextStyles';
+import Lottie from 'lottie-react';
+import animationData from './landing.json';
 
 const LandingPage = () => {
   const { t } = useTranslation();
@@ -14,7 +14,7 @@ const LandingPage = () => {
     <Wrapper>
       <WaveLanding />
       <ContentWrapper>
-        <Title>{t("landing.title")}</Title>
+        <Title>{t('landing.title')}</Title>
       </ContentWrapper>
       <LottieWrapper>
         <Lottie animationData={animationData} loop={true} />

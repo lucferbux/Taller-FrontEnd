@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
-import useApp from "../../hooks/useApp";
-import { AboutMe } from "../../model/aboutme";
-import { Project } from "../../model/project";
-import { mockAboutme, mockProjects } from "../../utils/mock-response";
-import AboutMeCard from "../cards/AboutMeCard";
-import ProjectCard from "../cards/ProjectCard";
-import { themes } from "../../styles/ColorStyles";
-import { MediumText } from "../../styles/TextStyles";
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import useApp from '../../hooks/useApp';
+import { AboutMe } from '../../model/aboutme';
+import { Project } from '../../model/project';
+import { mockAboutme, mockProjects } from '../../utils/mock-response';
+import AboutMeCard from '../cards/AboutMeCard';
+import ProjectCard from '../cards/ProjectCard';
+import { themes } from '../../styles/ColorStyles';
+import { MediumText } from '../../styles/TextStyles';
 
 interface Response {
   aboutme?: AboutMe;
@@ -24,13 +24,13 @@ const Dashboard = () => {
   useEffect(() => {
     async function retrieveInfo() {
       try {
-        startSearch(t("loader.text"));
+        startSearch(t('loader.text'));
         const projects: Project[] = await mockProjects();
         const aboutme: AboutMe = await mockAboutme();
         setResponse({ aboutme, projects });
       } catch {
-        console.log("Error");
-        setError("Info not found");
+        console.log('Error');
+        setError('Info not found');
       } finally {
         stopSearch();
       }
@@ -65,7 +65,7 @@ const Dashboard = () => {
           </ResponseWrapper>
         )}
 
-        {error && <ErrorMsg>{t("dashboard.error")}</ErrorMsg>}
+        {error && <ErrorMsg>{t('dashboard.error')}</ErrorMsg>}
       </ContentWrapper>
     </Wrapper>
   );

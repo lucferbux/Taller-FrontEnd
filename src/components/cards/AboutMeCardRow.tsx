@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { themes } from "../../styles/ColorStyles";
-import { MediumText } from "../../styles/TextStyles";
+import React from 'react';
+import styled from 'styled-components';
+import { themes } from '../../styles/ColorStyles';
+import { MediumText } from '../../styles/TextStyles';
 
 interface AboutMeCardRowProps {
   title: string;
@@ -10,7 +10,7 @@ interface AboutMeCardRowProps {
 
 const AboutMeCardRow = (props: AboutMeCardRowProps) => {
   const formatDate = (value: string | number): string => {
-    if (typeof value === "number") {
+    if (typeof value === 'number') {
       const date = new Date(value);
       return date.toLocaleDateString();
     } else {

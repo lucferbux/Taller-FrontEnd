@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createContext, ReactNode, useCallback, useReducer } from "react";
-import notificationsReducer from "./notificationsReducer";
-import { POP_NOTIFICATION, PUSH_NOTIFICATION } from "./constants";
+import { createContext, ReactNode, useCallback, useReducer } from 'react';
+import notificationsReducer from './notificationsReducer';
+import { POP_NOTIFICATION, PUSH_NOTIFICATION } from './constants';
 
 const AppContext = createContext<any>({
-  notifications: [],
+  notifications: []
 });
 
 interface Props {
@@ -27,7 +27,7 @@ export function AppProvider({ children }: Props) {
       value={{
         notifications,
         addNotification,
-        removeLastNotification,
+        removeLastNotification
       }}
     >
       {children}

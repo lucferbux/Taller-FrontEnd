@@ -1,11 +1,11 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import useApp from "../../hooks/useApp";
-import useAuth from "../../hooks/useAuth";
-import { themes } from "../../styles/ColorStyles";
-import { Caption, H1 } from "../../styles/TextStyles";
+import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import useApp from '../../hooks/useApp';
+import useAuth from '../../hooks/useAuth';
+import { themes } from '../../styles/ColorStyles';
+import { Caption, H1 } from '../../styles/TextStyles';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,31 +13,31 @@ const Login = () => {
   const { login } = useAuth();
   const { addNotification, removeLastNotification } = useApp();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   async function doLogin(event: FormEvent<HTMLFormElement>) {
     dismissError();
     event.preventDefault();
     if (!readyToSubmit()) {
-      setErrorMsg(t("login.err_usr_pass"));
+      setErrorMsg(t('login.err_usr_pass'));
       return;
     }
 
     try {
-      addNotification(t("loader.text"));
+      addNotification(t('loader.text'));
       await login(username, password);
-      navigate("/admin");
+      navigate('/admin');
     } catch (e) {
-      setErrorMsg(t("login.err_inv_lgn"));
+      setErrorMsg(t('login.err_inv_lgn'));
     } finally {
       removeLastNotification();
     }
   }
 
   function onChangeAnyInput() {
-    setErrorMsg("");
+    setErrorMsg('');
   }
 
   function onChangeUsername(e: ChangeEvent<HTMLInputElement>) {
@@ -52,40 +52,36 @@ const Login = () => {
 
   function readyToSubmit(): boolean {
     // TODO: Add email check
-    return username !== "" && password !== "";
+    return username !== '' && password !== '';
   }
 
   function dismissError() {
-    setErrorMsg("");
+    setErrorMsg('');
   }
 
   return (
     <Wrapper>
       <ContentWrapper>
-        <TitleForm>{t("login.login_title")}</TitleForm>
+        <TitleForm>{t('login.login_title')}</TitleForm>
         <LoginPannel onSubmit={doLogin}>
           {errorMsg && <ErrorDescription>{errorMsg}</ErrorDescription>}
           <LoginForm
             name="email"
             type="email"
-            placeholder={t("login.email_placeholder")}
+            placeholder={t('login.email_placeholder')}
             value={username}
             onChange={onChangeUsername}
           />
           <LoginForm
             name="password"
             type="password"
-            placeholder={t("login.password_placeholder")}
+            placeholder={t('login.password_placeholder')}
             value={password}
             onChange={onChangePassword}
           />
           <ButtonForm
             type="submit"
-            value={
-              t("login.button_login") != null
-                ? (t("login.button_login") as string)
-                : "Log In"
-            }
+            value={t('login.button_login') != null ? (t('login.button_login') as string) : 'Log In'}
           />
         </LoginPannel>
       </ContentWrapper>
