@@ -22,7 +22,6 @@ const LandingPage = () => {
     </Wrapper>
   );
 };
-
 const Wrapper = styled.div`
   overflow: hidden;
   height: 1200px;

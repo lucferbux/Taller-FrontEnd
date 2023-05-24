@@ -10,7 +10,7 @@ export const themes = {
     warning: `#C22D2D`,
     loadingScreen: 'rgba(0,0,0,0.7)',
     card: {
-      backgroundColor: `rgba(255, 255, 255, 0.6)`,
+      backgroundColor: `rgba(255, 255, 255, 0.4)`,
       boxShadow: `0px 50px 100px rgba(34, 79, 169, 0.3),
       inset 0 0 0 0.5px rgba(255, 255, 255, 0.6)`,
       backgroundColorFull: `rgba(255, 255, 255, 1)`
@@ -40,10 +40,10 @@ export const themes = {
     backgroundColor: `#2B2830`,
     backgroundForm: `#282828`,
     card: {
-      backgroundColor: `rgba(15, 13, 17, 0.84)`,
+      backgroundColor: `rgba(0, 0, 0, 0.4)`,
       boxShadow: `0px 30px 60px rgba(0, 0, 0, 0.25),
         inset 0 0 0 0.5px rgba(255, 255, 255, 0.2)`,
-      backgroundColorFull: `rgba(15, 14, 71, 1)`
+      backgroundColorFull: `rgba(0, 0, 0, 1)`
     },
     cardHover: {
       backgroundColor: `rgba(255, 255, 255, 0.1)`,

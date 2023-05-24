@@ -1,26 +1,23 @@
+import React from 'react';
 import styled from 'styled-components';
 import icnLoader from './loader.svg';
-import useApp from '../../hooks/useApp';
 import { themes } from '../../styles/ColorStyles';
 import { Caption } from '../../styles/TextStyles';
 
-export default function Loader() {
-  const { notifications } = useApp();
-  const loaderMessage = () => notifications[notifications.length - 1];
+export type LoaderProps = {
+  message: string;
+};
 
-  if (notifications.length > 0) {
-    return (
-      <LoaderWrapper>
-        <LoaderCard>
-          <LoaderImg src={icnLoader} alt={loaderMessage()} />
-          <LoaderMsg>{loaderMessage()}</LoaderMsg>
-        </LoaderCard>
-      </LoaderWrapper>
-    );
-  } else {
-    return <></>;
-  }
-}
+const Loader = ({ message }: LoaderProps) => (
+  <LoaderWrapper>
+    <LoaderCard>
+      <LoaderImg src={icnLoader} alt={message} />
+      <LoaderMsg>{message}</LoaderMsg>
+    </LoaderCard>
+  </LoaderWrapper>
+);
+
+export default Loader;
 
 const LoaderWrapper = styled.div`
   position: absolute;

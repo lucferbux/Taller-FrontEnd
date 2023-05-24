@@ -9,7 +9,7 @@ export interface AboutMe {
    * @type {string}
    * @memberof AboutMe
    */
-  id: string;
+  _id: string;
   /**
    *
    * @type {string}

@@ -64,14 +64,14 @@ interface MenuWrapperProps {
   count: number;
 }
 
+const LinkButton = styled.p`
+  color: ${themes.dark.text1};
+`;
+
 const MenuWrapper = styled.div<MenuWrapperProps>`
   display: grid;
   grid-template-columns: repeat(${(props) => props.count}, auto);
   gap: 30px;
-`;
-
-const LinkButton = styled.p`
-  color: ${themes.dark.text1};
 `;
 
 // const Logo = styled.img`

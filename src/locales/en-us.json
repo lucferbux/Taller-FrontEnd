@@ -25,6 +25,8 @@
     },
     "admin": {
         "err_invalid_form": "Inputs must not be null",
+        "err_network": "Error posting project",
+        "suc_network": "Project posted",
         "header": "Project Input",
         "input_title": "Title",
         "input_description": "Description",

@@ -2,17 +2,15 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import useApp from '../../hooks/useApp';
 import useAuth from '../../hooks/useAuth';
 import { themes } from '../../styles/ColorStyles';
 import { Caption, H1 } from '../../styles/TextStyles';
+import Loader from '../elements/Loader';
 
 const Login = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { login } = useAuth();
-  const { addNotification, removeLastNotification } = useApp();
-
+  const { login, isLoading } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
@@ -26,13 +24,10 @@ const Login = () => {
     }
 
     try {
-      addNotification(t('loader.text'));
       await login(username, password);
       navigate('/admin');
     } catch (e) {
       setErrorMsg(t('login.err_inv_lgn'));
-    } finally {
-      removeLastNotification();
     }
   }
 
@@ -51,7 +46,6 @@ const Login = () => {
   }
 
   function readyToSubmit(): boolean {
-    // TODO: Add email check
     return username !== '' && password !== '';
   }
 
@@ -61,6 +55,7 @@ const Login = () => {
 
   return (
     <Wrapper>
+      {isLoading && <Loader message={t('loader.text')} />}
       <ContentWrapper>
         <TitleForm>{t('login.login_title')}</TitleForm>
         <LoginPannel onSubmit={doLogin}>

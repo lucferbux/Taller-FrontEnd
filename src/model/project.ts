@@ -9,7 +9,7 @@ export interface Project {
    * @type {string}
    * @memberof Project
    */
-  id: string;
+  _id?: string;
   /**
    *
    * @type {string}
@@ -42,8 +42,8 @@ export interface Project {
   tag: string;
   /**
    *
-   * @type {Date}
+   * @type {number}
    * @memberof Project
    */
-  timestamp: Date;
+  timestamp: number;
 }

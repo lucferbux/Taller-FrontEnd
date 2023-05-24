@@ -25,6 +25,9 @@
     },
     "admin": {
         "err_invalid_form": "Elementos no pueden estar vacíos",
+        "err_network": "Error publicando el Proyecto",
+        "suc_network": "Proyecto publicado",
+        "suc_network_update": "Proyecto actualizado",
         "header": "Project Input",
         "input_title": "Título",
         "input_description": "Descripción",
@@ -32,6 +35,7 @@
         "input_tags": "Tags",
         "input_version": "Versión",
         "button_accept": "Publicar",
+        "button_accept_update": "Actualizar",
         "button_delete": "Eliminar"
     },
     "nav": {

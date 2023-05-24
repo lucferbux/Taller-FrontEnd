@@ -9,8 +9,20 @@ import {
 } from '../utils/auth';
 import { mockLogin } from '../utils/mock-response';
 
-const AuthContext = createContext<any>({
-  user: undefined
+type AuthContextType = {
+  user: User | undefined;
+  isLoading: boolean;
+  login: (username: string, password: string) => Promise<void>;
+  logout: () => Promise<void>;
+  loadUser: () => void;
+};
+
+const AuthContext = createContext<AuthContextType>({
+  user: undefined,
+  isLoading: false,
+  login: () => Promise.resolve(),
+  logout: () => Promise.resolve(),
+  loadUser: () => {}
 });
 
 interface Props {
@@ -19,6 +31,7 @@ interface Props {
 
 export function AuthProvider({ children }: Props) {
   const [user, setUser] = useState<User | undefined>(getCurrentUser());
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const loadUser = useCallback(() => {
     const currentUser = getCurrentUser();
@@ -37,26 +50,28 @@ export function AuthProvider({ children }: Props) {
 
   const login = useCallback(
     async (username: string, password: string) => {
+      setIsLoading(true);
       try {
         const result = await mockLogin(username, password);
-        console.log(result);
         setAuthToken(result.token);
         setLogoutIfExpiredHandler(setUser);
         loadUser();
       } catch (apiError) {
         throw new Error();
+      } finally {
+        setIsLoading(false);
       }
     },
     [setUser, loadUser]
   );
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
     logoutService();
     setUser(undefined);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loadUser }}>
+    <AuthContext.Provider value={{ user, isLoading, login, logout, loadUser }}>
       {children}
     </AuthContext.Provider>
   );

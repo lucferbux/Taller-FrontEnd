@@ -7,9 +7,7 @@ export const mockLogin = (userName: string, password: string) =>
       if (userName === 'user@threepoints.com' && password === 'patata') {
         resolve(
           JSON.parse(
-            `{
-                 "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyOTM0ODIwOTM0ODkwODA5OCIsImVtYWlsIjoibHVjYXNmZXJuYW5kZXphcmFnb25AZ21haWwuY29tIiwiaWF0IjoxNjM2OTIzOTE4LCJleHAiOjE2MzY5Mjc1MTh9.3qHpT-ZKj04-QzkissGbuyCHFkgN_WXy8LkuXcrUUSw"
-                 }`
+            `{"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxODg0YmJiM2Q0YTRkNDk1ZDYyNGJhYyIsImVtYWlsIjoibHVjYXNmZXJuYW5kZXphcmFnb25AZ21haWwuY29tIiwiaWF0IjoxNjM2MzIyMzA3LCJleHAiOjE2MzYzMjU5MDd9.yxy7uKWXJx5rY8znRBTg5182llyH8Rs9R8C6_SM4LIg" }`
           )
         );
       } else {
@@ -24,6 +22,19 @@ export interface ApiError {
   description?: string;
 }
 export class Unauthorized implements ApiError {}
+
+export interface DashboardInfo {
+  aboutMe: AboutMe;
+  projects: Project[];
+}
+
+export const mockFetchDashboard = () =>
+  Promise.all([mockAboutme(), mockProjects()]).then(([aboutMe, projects]) => {
+    return {
+      aboutMe,
+      projects
+    };
+  });
 
 export const mockAboutme = () =>
   new Promise<AboutMe>(function (resolve) {
@@ -63,7 +74,7 @@ export const mockProjects = () =>
                 "title":"Vite",
                 "description":"Toolchain para la creación de proyectos basados en React, contiene lo báisco para crear proyectos basados en single-page apps",
                 "version":"4.0.3",
-                "link":"https://vitejs.dev/",
+                "link":"https://vitejs.dev",
                 "tag":"Toolchain, React, Bootstraping",
                 "timestamp":"765817712001"
                 },

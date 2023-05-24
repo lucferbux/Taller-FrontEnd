@@ -1,5 +1,5 @@
 export interface User {
   active: boolean;
-  id: string;
+  _id: string;
   email: string;
 }

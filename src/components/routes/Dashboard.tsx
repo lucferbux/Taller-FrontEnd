@@ -1,71 +1,54 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import useApp from '../../hooks/useApp';
-import { AboutMe } from '../../model/aboutme';
-import { Project } from '../../model/project';
-import { mockAboutme, mockProjects } from '../../utils/mock-response';
 import AboutMeCard from '../cards/AboutMeCard';
 import ProjectCard from '../cards/ProjectCard';
 import { themes } from '../../styles/ColorStyles';
 import { MediumText } from '../../styles/TextStyles';
-
-interface Response {
-  aboutme?: AboutMe;
-  projects?: Project[];
-}
+import Loader from '../elements/Loader';
+import useFetchData from '../../hooks/useFetchData';
+import { mockFetchDashboard } from '../../utils/mock-response';
 
 const Dashboard = () => {
   const { t } = useTranslation();
-  const [response, setResponse] = useState<Response | undefined>(undefined);
-  const [error, setError] = useState<string | undefined>(undefined);
-  const { addNotification, removeLastNotification } = useApp();
 
-  useEffect(() => {
-    async function retrieveInfo() {
-      try {
-        startSearch(t('loader.text'));
-        const projects: Project[] = await mockProjects();
-        const aboutme: AboutMe = await mockAboutme();
-        setResponse({ aboutme, projects });
-      } catch {
-        console.log('Error');
-        setError('Info not found');
-      } finally {
-        stopSearch();
-      }
-    }
+  const { data, isLoading, error } = useFetchData(mockFetchDashboard);
 
-    function startSearch(msg: string) {
-      setResponse(undefined);
-      setError(undefined);
-      addNotification(msg);
-    }
+  if (isLoading) {
+    return <Loader message="Loading data" />;
+  }
 
-    function stopSearch() {
-      removeLastNotification();
-    }
+  if (error) {
+    return (
+      <Wrapper>
+        <ContentWrapper>
+          <ErrorMsg>{t('dashboard.error')}</ErrorMsg>
+        </ContentWrapper>
+      </Wrapper>
+    );
+  }
 
-    retrieveInfo();
-  }, [setResponse, t, addNotification, removeLastNotification]);
+  // TODO: 3) Create la función deleteProject
+  // HINT: first argument should be: React.MouseEvent<HTMLElement> to call element.preventDefault() and element.stopPropagation()
+  // HINT: On top of adding the document, we need to navigate to /admin
 
   return (
     <Wrapper>
       <ContentWrapper>
-        {response && (
+        {data && (
           <ResponseWrapper>
             <AboutMeWrapper>
-              {response?.aboutme && <AboutMeCard aboutMe={response?.aboutme} />}
+              {data?.aboutMe && <AboutMeCard aboutMe={data?.aboutMe} />}
             </AboutMeWrapper>
             <ProjectWrapper>
-              {response?.projects?.map((project, index) => (
-                <ProjectCard project={project} key={index} />
-              ))}
+              {data?.projects
+                ?.sort((a, b) => b.timestamp - a.timestamp)
+                .map((project, index) => (
+                  <ProjectCard project={project} key={index} />
+                ))}
             </ProjectWrapper>
           </ResponseWrapper>
         )}
-
-        {error && <ErrorMsg>{t('dashboard.error')}</ErrorMsg>}
       </ContentWrapper>
     </Wrapper>
   );
