@@ -36,7 +36,11 @@ const AboutMeCard = (props: AboutMeCardProps) => {
             <AboutMeCardRow title={t('aboutMeCard.occupation')} value={props.aboutMe.job} />
           )}
           {props.aboutMe.github && (
-            <AboutMeCardRow title={t('aboutMeCard.github')} value={props.aboutMe.github} />
+            <AboutMeCardRow
+              title={t('aboutMeCard.github')}
+              value={props.aboutMe.github}
+              isLink={true}
+            />
           )}
         </InfoSection>
       </InfoWrapper>
